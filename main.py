@@ -1,9 +1,31 @@
-from flask import Flask
+from flask import Flask, render_template
+import sqlite3
+from sqlite3 import Error
 
 app = Flask(__name__)
+DATABASE = "Marine.db"
 
-@app.route("/")
-def hello_world():
-    return "<p>Hello, World!</p>"
+def create_connection(db_file):
+    try:
+        connection = sqlite3.connect(db_file)
+        return connection
+    except Error as e:
+        print(e)
+    return None
 
-app.run()
+@app.route('/')
+def render_home():
+    return render_template('index.html')
+
+@app.route('/animals')
+def render_animals():
+    query = "SELECT tag, description FROM html WHERE type='HTML'"
+
+    cur.execute(query)
+    animal_list = cur.fetchall()
+    connection.close()
+    print(animal_list)
+    return render_template('animals.html', name=animal_list)
+
+if __name__ == "__main__":
+    app.run(host='0.0.0.0')
