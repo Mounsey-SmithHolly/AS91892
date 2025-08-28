@@ -1,20 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>HTML and CSS Tags</title>
-    <link type="text/css" rel="stylesheet" href="/static/css/style.css">
-</head>
-<nav>
-    <a href="/index.html">Main</a>
-    <a href="/">Animals</a>
-
-    <form method="POST" action="/search">
-    <input type="text" name="search" id="search">
-    <input type="submit" value="Search">
-    </form> 
-</nav>
-<body>
+{% block main %} 
     <table>
                 <thead>
                     <tr>
@@ -25,11 +9,10 @@
                     </tr>
                 </thead>
                 <tbody>
-                    {% for tag in tags %}
+                    {% for narine in tags %}
                     <tr>
-                        <td>{{ tag[0] }}</td>
-                        <td>{{ tag[1] }}</td>
-                        <td>{{ tag[2] }}</td>
+                        <td>{{ marine[0] }}</td>
+                        <td>{{ marine[1] }}</td>
                     </tr>
                     {% endfor %}
                 </tbody>
@@ -39,5 +22,4 @@
             <footer>
                 <p>by me</p>
             </footer>
-</body>
-</html>
+ {% endblock %}

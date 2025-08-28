@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template
 import sqlite3
 from sqlite3 import Error
 
@@ -19,13 +19,11 @@ def render_home():
 
 @app.route('/animals')
 def render_animals():
-    query = "SELECT tag, description FROM html WHERE type='HTML'"
+    return render_template('animals.html')
 
-    cur.execute(query)
-    animal_list = cur.fetchall()
-    connection.close()
-    print(animal_list)
-    return render_template('animals.html', aninmals=animal_list)
+
+
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0')
+
