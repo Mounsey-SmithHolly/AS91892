@@ -6,15 +6,22 @@
     <link type="text/css" rel="stylesheet" href="/static/css/style.css">
 </head>
 <nav>
-    <a href="/index.html">Index</a>
+    <a href="/index.html">Main</a>
     <a href="/">Animals</a>
+
+    <form method="POST" action="/search">
+    <input type="text" name="search" id="search">
+    <input type="submit" value="Search">
+    </form> 
 </nav>
 <body>
     <table>
                 <thead>
                     <tr>
-                        <th>Tag</th>
-                        <th>Description</th>
+                        <th>Animal Name</th>
+                        <th>Scientific name</th>
+                        <th>images</th>
+
                     </tr>
                 </thead>
                 <tbody>
@@ -22,10 +29,15 @@
                     <tr>
                         <td>{{ tag[0] }}</td>
                         <td>{{ tag[1] }}</td>
+                        <td>{{ tag[2] }}</td>
                     </tr>
                     {% endfor %}
                 </tbody>
                 
 
             </table>
+            <footer>
+                <p>by me</p>
+            </footer>
 </body>
+</html>

@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 import sqlite3
 from sqlite3 import Error
 
@@ -25,7 +25,7 @@ def render_animals():
     animal_list = cur.fetchall()
     connection.close()
     print(animal_list)
-    return render_template('animals.html', name=animal_list)
+    return render_template('animals.html', aninmals=animal_list)
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0')
