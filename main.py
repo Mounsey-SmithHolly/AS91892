@@ -19,6 +19,15 @@ def render_home():
 
 @app.route('/animals')
 def render_animals():
+    query = "SELECT animal_name, science_name FROM marine"
+    con = create_connection(DATABASE)
+    print(con)
+    cur = con.cursor()
+    #query the database 
+    cur.execute(query)
+    animal_list = cur.fetchall()
+    con.close()
+    print(animal_list)
     return render_template('animals.html')
 
 
