@@ -19,7 +19,7 @@ def render_home():
 
 @app.route('/animals')
 def render_animals():
-    query = "SELECT animal_name, science_name FROM marine"
+    query = "SELECT animal_name, science_name FROM Marine"
     con = create_connection(DATABASE)
     cur = con.cursor()
     #query the database 

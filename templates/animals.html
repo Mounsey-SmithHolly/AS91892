@@ -1,10 +1,26 @@
-{% block main %} 
-    <table>
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Marine Animals </title>
+    <link type="text/css" rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+<nav>
+    <a href="/">Home</a>
+    <a href="/animals">Animals</a>
+
+    <form method="POST" action="/search">
+    <input type="text" name="search" id="search">
+    <input type="submit" value="Search">
+    </form> 
+</nav>
+<main>
+     <table>
                 <thead>
                     <tr>
                         <th>Animal Name</th>
                         <th>Scientific name</th>
-                        <th>images</th>
 
                     </tr>
                 </thead>
@@ -18,8 +34,10 @@
                 </tbody>
                 
 
-            </table>
+    </table>
             <footer>
                 <p>by me</p>
             </footer>
- {% endblock %}
+</main>
+</body>
+</html>
