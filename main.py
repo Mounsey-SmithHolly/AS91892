@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 import sqlite3
 from sqlite3 import Error
 
@@ -28,9 +28,6 @@ def render_animals():
     con.close()
     print(animal_list)
     return render_template('animals.html', animals=animal_list)
-
-
-
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0')
