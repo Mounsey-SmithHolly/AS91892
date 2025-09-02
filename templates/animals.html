@@ -1,21 +1,6 @@
- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Marine Animals </title>
-    <link type="text/css" rel="stylesheet" href="/static/css/styles.css">
-</head>
-<body>
-<nav>
-    <a href="/">Home</a>
-    <a href="/animals">Animals</a>
+{% extends "base.html" %}
 
-    <form method="POST" action="/search">
-    <input type="text" name="search" id="search">
-    <input type="submit" value="Search">
-    </form> 
-</nav>
-<main>
+{% block main %}
      <table>
                 <thead>
                     <tr>
@@ -39,5 +24,4 @@
                 <p>by me</p>
             </footer>
 </main>
-</body>
-</html>
+{% endblock %}
