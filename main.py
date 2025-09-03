@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template
 import sqlite3
 from sqlite3 import Error
 
@@ -28,6 +28,20 @@ def render_animals():
     con.close()
     print(animal_list)
     return render_template('animals.html', animals=animal_list)
+
+@app.route("/search", meathods=['GET',POST''])
+def render_search():
+    search = request.form['search']
+    title = "Search for " + search
+    query = "SELECT animal_name FROM Marine"
+    search = "%" +search+ "%"
+    con = create_connection(DATABASE)
+    cur = con.cursor()
+    cur.execute(query, (search, search))
+    animal_list = cur.fetchall()
+    con.close()
+    return render_template('animals.html', animals=animal_list)
+
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', debug=True)
