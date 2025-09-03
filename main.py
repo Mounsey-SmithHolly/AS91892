@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request 
 import sqlite3
 from sqlite3 import Error
 
@@ -19,22 +19,22 @@ def render_home():
 
 @app.route('/main/<fish>')
 def render_animals(fish):
-    title = fish.upper
-    query = "SELECT ? FROM Marine"
+    title = fish.upper()
+    query = "SELECT animal_name, science_name FROM Marine"
     con = create_connection(DATABASE)
     cur = con.cursor()
     #query the database 
-    cur.execute(query, (fish,))
+    cur.execute(query)
     animal_list = cur.fetchall()
     con.close()
     print(animal_list)
-    return render_template('creatures.html', animals=animal_list)
+    return render_template('creatures.html', animals=animal_list, title=title)
 
-@app.route("/search", methods=['GET',POST''])
+@app.route("/search", methods=['GET','POST'])
 def render_search():
     search = request.form['search']
     title = "Search for " + search
-    query = "SELECT animal_name FROM Marine"
+    query = "SELECT animal_name, science_name FROM Marine"
     search = "%" +search+ "%"
     con = create_connection(DATABASE)
     cur = con.cursor()
