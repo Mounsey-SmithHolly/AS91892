@@ -17,19 +17,20 @@ def create_connection(db_file):
 def render_home():
     return render_template('index.html')
 
-@app.route('/animals')
-def render_animals():
-    query = "SELECT animal_name, science_name FROM Marine"
+@app.route('/main/<fish>')
+def render_animals(fish):
+    title = fish.upper
+    query = "SELECT ? FROM Marine"
     con = create_connection(DATABASE)
     cur = con.cursor()
     #query the database 
-    cur.execute(query)
+    cur.execute(query, (fish,))
     animal_list = cur.fetchall()
     con.close()
     print(animal_list)
-    return render_template('animals.html', animals=animal_list)
+    return render_template('creatures.html', animals=animal_list)
 
-@app.route("/search", meathods=['GET',POST''])
+@app.route("/search", methods=['GET',POST''])
 def render_search():
     search = request.form['search']
     title = "Search for " + search
