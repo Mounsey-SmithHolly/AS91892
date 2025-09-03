@@ -34,14 +34,14 @@ def render_animals(fish):
 def render_search():
     search = request.form['search']
     title = "Search for " + search
-    query = "SELECT animal_name, science_name FROM Marine"
+    query = "SELECT animal_name, science_name, image FROM Marine WHERE animal_group = ?"
     search = "%" +search+ "%"
     con = create_connection(DATABASE)
     cur = con.cursor()
     cur.execute(query, (search, search))
     animal_list = cur.fetchall()
     con.close()
-    return render_template('animals.html', animals=animal_list)
+    return render_template('cretures.html', animals=animal_list)
 
 
 if __name__ == "__main__":
