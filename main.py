@@ -17,14 +17,14 @@ def create_connection(db_file):
 def render_home():
     return render_template('index.html')
 
-@app.route('/main/<fish>')
-def render_animals(fish):
-    title = fish.upper()
-    query = "SELECT animal_name, science_name FROM Marine"
+@app.route('/main/<classification>')
+def render_animals(classification):
+    title = classification.upper()
+    query = "SELECT animal_name, science_name FROM Marine WHERE animal_group = ?"
     con = create_connection(DATABASE)
     cur = con.cursor()
     #query the database 
-    cur.execute(query)
+    cur.execute(query, (title,))
     animal_list = cur.fetchall()
     con.close()
     print(animal_list)
@@ -42,7 +42,6 @@ def render_search():
     animal_list = cur.fetchall()
     con.close()
     return render_template('cretures.html', animals=animal_list)
-
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', debug=True)
