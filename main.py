@@ -82,5 +82,5 @@ def render_sortpage(title):
     return render_template('creatures.html', animals=animal_list, title=title, classifications=get_classifications(), order=new_order)
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0')
+    app.run(host='0.0.0.0', debug=True)
 
