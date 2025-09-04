@@ -62,7 +62,7 @@ def render_search():
 
 @app.route('/sort/<title>')
 def render_sortpage(title):
-    sort = request.arge.get('sort')
+    sort = request.args.get('sort')
     order = request.args.get('order', 'asc')
     #change the sort order 
     if order == 'asc':
@@ -82,5 +82,5 @@ def render_sortpage(title):
     return render_template('creatures.html', animals=animal_list, title=title, classifications=get_classifications(), order=new_order)
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', debug=True)
+    app.run(host='0.0.0.0')
 
