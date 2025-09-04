@@ -21,7 +21,6 @@ def get_animals(animal_type):
     cur.execute(query, (title,))
     animal_list = cur.fetchall()
     con.close()
-    print(animal_list)
     return animal_list
 
 def get_classifications():
@@ -30,10 +29,10 @@ def get_classifications():
     cur = con.cursor()
     cur.execute(query)
     records = cur.fetchall()
-    print(records)
+    #print(records)
     for i in range(len(records)):
         records[i] = records[i][0]
-    print(records)
+    #print(records)
     return records
 
 
@@ -71,7 +70,7 @@ def render_sortpage(title):
         new_order = 'asc'
 
     #sorting query
-    query = "SELECT animal_name, science_name FROM marine WHERE type=? ORDER BY " + sort+ " " + order
+    query = "SELECT animal_name, science_name FROM marine WHERE animal_group=? ORDER BY " + sort+ " " + order
     con = create_connection(DATABASE)
     cur = con.cursor()
 

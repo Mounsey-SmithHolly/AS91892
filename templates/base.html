@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,12 +8,10 @@
     <body>
         <nav>
             <a href="/">Home</a>
-            <a href="/main/Fish">Fish</a>
-            <a href="/main/Invertebrates">Invertebrates</a>
-            <a href="/main/Mammals">Mammals</a>
-            <a href="/main/Birds">Birds</a>
-            <a href="/main/Reptiles">Reptiles</a>
-            <a href="/main/Amphibians">Amphibians</a>
+            {% for classes in animal_group %}
+            <a href="/main/{{classes}}">{{classes}}</a>
+            {% endfor %}
+            
 
             <form method="POST" action="/search">
                 <input type="text" name="search" id="search">
