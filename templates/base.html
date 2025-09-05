@@ -7,17 +7,16 @@
 </head>
     <body>
         <nav>
-
+            <ul>
+            <li>
             <a href="/">Home</a>
-            <!--{% for classes in animal_group %}
+            </li>
+            {% for classes in classifications %}
+            <li>
             <a href="/main/{{classes}}">{{classes}}</a>
-            {% endfor %}--->
-            <a href="/main/Fish">Fish</a>
-            <a href="/main/Invertebrates">Invertebrates</a>
-            <a href="/main/Mammals">Mammals</a>
-            <a href="/main/Birds">Birds</a>
-            <a href="/main/Reptiles">Reptiles</a>
-            <a href="/main/Amphibians">Amphibians</a>
+            </li>
+            {% endfor %}
+            </ul>
             
             <form method="POST" action="/search">
                 <input type="text" name="search" id="search">
