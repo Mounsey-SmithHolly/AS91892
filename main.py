@@ -14,12 +14,13 @@ def create_connection(db_file):
     return None
 
 def get_animals(animal_type):
-    title = animal_type.upper()
+    title = animal_type.capitalize()
     query = "SELECT animal_name, science_name FROM Marine WHERE animal_group = ?"
     con = create_connection(DATABASE)
     cur = con.cursor()
     cur.execute(query, (title,))
     animal_list = cur.fetchall()
+    print(animal_list)
     con.close()
     return animal_list
 
@@ -43,7 +44,7 @@ def render_home():
 @app.route('/main/<classification>')
 def render_animals(classification):
     title = classification.upper()
-    return render_template('creatures.html', animals_name=get_animals(classification), title=title, classifications=get_classifications())
+    return render_template('creatures.html', animals=get_animals(classification), title=title, classifications=get_classifications())
 
 #adding in the search function 
 @app.route("/search", methods=['GET','POST'])
@@ -70,7 +71,7 @@ def render_sortpage(title):
         new_order = 'asc'
 
     #sorting query
-    query = "SELECT animal_name, science_name FROM marine WHERE animal_group=? ORDER BY " + sort+ " " + order
+    query = "SELECT animal_name, science_name FROM Marine WHERE animal_group=? ORDER BY " + sort+ " " + order
     con = create_connection(DATABASE)
     cur = con.cursor()
 

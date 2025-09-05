@@ -2,13 +2,12 @@
 
 {% block main %}
     <h2>{{ title }}</h2>
-    {{ sort }}
+    <p>{{ sort }}</p>
      <table>
                 <thead>
                     <tr>
                         <th><a href="/sort/{{title}}?sort=animal_name&order={{ order }}">Animal Name</a></th>
-                        <th><a href="/sort/{{title}}?sort=science_name&order={{ order }}">Sientific name </a></th>
-                        <th>Image</th>
+                        <th><a href="/sort/{{title}}?sort=science_name&order={{ order }}">Scientific name </a></th>
 
                     </tr>
                 </thead>
@@ -17,7 +16,6 @@
                     <tr>
                         <td>{{ animal[0] }}</td>
                         <td>{{ animal[1] }}</td>
-                        <td>{{ animal[2] }}</td>
 
                     </tr>
                     {% endfor %}
