@@ -8,6 +8,8 @@
                     <tr>
                         <th><a href="/sort/{{title}}?sort=animal_name&order={{ order }}">Animal Name</a></th>
                         <th><a href="/sort/{{title}}?sort=science_name&order={{ order }}">Scientific name </a></th>
+                        <th>images</th>
+
 
                     </tr>
                 </thead>
@@ -16,7 +18,7 @@
                     <tr>
                         <td>{{ animal[0] }}</td>
                         <td>{{ animal[1] }}</td>
-
+                        <td>{{ animal[2] }}</td>
 
                     </tr>
                     {% endfor %}
