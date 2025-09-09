@@ -27,8 +27,8 @@
                                                                                                                         <label for="mobility">Mobility</label>
                                                                                                                                     <select name="mobility" id="mobility"> 
                                                                                                                                                         <option value="">All</option> 
-                                                                                                                                                                    {% for mobility in filters.mobility %} 
-                                                                                                                                                                                <option value="{{ mobility }}">{{ mobility }}</option> 
+                                                                                                                                                                    {% for movement in filters.mobility %} 
+                                                                                                                                                                                <option value="{{ movement }}">{{ movement }}</option> 
                                                                                                                                                                                             {% endfor %} 
                                                                                                                                     </select>
                                                                                                                                             <input type="submit" value="Filter">
