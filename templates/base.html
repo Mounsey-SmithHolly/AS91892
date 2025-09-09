@@ -1,41 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Marine Animals </title>
-    <link type="text/css" rel="stylesheet" href="/static/css/styles.css">
-</head>
-    <body>
-        <nav>
-           
-            <ul>
-            <li>
-            <a href="/">Home</a>
-            </li>
-            {% for classes in classifications %}
-            <li>
-            <a href="/main/{{classes}}">{{classes}}</a>
-            </li>
-            {% endfor %}
-            </ul>
-            <!--the search function-->
-            <form method="POST" action="/search">
-                <input type="text" name="search" id="search">
-                <input type="submit" value="Search">
-            </form> 
-            <form method = "GET">
-                <label for="mobility">Mobility</label>
-                <select name="mobility" id="mobility"> 
-                <option value="">All</option> 
-                {% for mobility in filters.mobility %} 
-                <option value="{{ mobility }}">{{ mobility }}</option> 
-                {% endfor %} 
-            </select>
-            <input type="submit" value="Filter">
-            </form>
-        </nav>
-        <main>
-            {% block main %}  {% endblock %}
-        </main>
-    </body>
-</html>
+    <head>
+            <meta charset="UTF-8">
+                <title>Marine Animals </title>
+                    <link type="text/css" rel="stylesheet" href="/static/css/styles.css">
+    </head>
+        <body>
+                    <nav>
+                                   
+                                    <ul>
+                                                    <li>
+                                                                    <a href="/">Home</a>
+                                                    </li>
+                                                                {% for classes in classifications %}
+                                                                            <li>
+                                                                                            <a href="/main/{{classes}}">{{classes}}</a>
+                                                                            </li>
+                                                                                        {% endfor %}
+                                                                        </ul>
+                                                                                    <!--the search function-->
+                                                                                            <form method="POST" action="/search">
+                                                                                                                <input type="text" name="search" id="search">
+                                                                                                                            <input type="submit" value="Search">
+                                                                                            </form> 
+                                                                                                    <form method = "GET">
+                                                                                                                        <label for="mobility">Mobility</label>
+                                                                                                                                    <select name="mobility" id="mobility"> 
+                                                                                                                                                        <option value="">All</option> 
+                                                                                                                                                                    {% for mobility in filters.mobility %} 
+                                                                                                                                                                                <option value="{{ mobility }}">{{ mobility }}</option> 
+                                                                                                                                                                                            {% endfor %} 
+                                                                                                                                    </select>
+                                                                                                                                            <input type="submit" value="Filter">
+                                                                                                                                </form>
+                                                                                                                            </nav>
+                                                                                                                                <main>
+                                                                                                                                                {% block main %}  {% endblock %}
+                                                                                                                                </main>
+                                                                                                                            </body>
+                                                                                                                        </html>-->>

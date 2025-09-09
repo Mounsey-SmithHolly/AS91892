@@ -15,7 +15,7 @@ def create_connection(db_file):
 
 def get_animals(animal_type, filters=None):
     title = animal_type.capitalize()
-    query = "SELECT animal_name, science_name, images FROM Marine WHERE animal_group = ?"
+    query = "SELECT animal_name, science_name, life_span, average_length, top_speed, images FROM Marine WHERE animal_group = ?"
     params = [title]
 
     #adding in filters  maybe try adding <= and >= for the numerical values
@@ -122,7 +122,7 @@ def render_sortpage(title):
         new_order = 'asc'
 
     #sorting query
-    query = "SELECT animal_name, science_name FROM Marine WHERE animal_group=? ORDER BY " + sort+ " " + order
+    query = "SELECT animal_name, science_name, life_span, average_length, top_speed FROM Marine WHERE animal_group=? ORDER BY " + sort+ " " + order
     con = create_connection(DATABASE)
     cur = con.cursor()
 
