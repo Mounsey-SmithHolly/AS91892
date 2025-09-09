@@ -18,11 +18,21 @@
             </li>
             {% endfor %}
             </ul>
-            
+            <!--the search function-->
             <form method="POST" action="/search">
                 <input type="text" name="search" id="search">
                 <input type="submit" value="Search">
             </form> 
+            <form method = "GET">
+                <label for="mobility">Mobility</label>
+                <select name="mobility" id="mobility"> 
+                <option value="">All</option> 
+                {% for mobility in filters.mobility %} 
+                <option value="{{ mobility }}">{{ mobility }}</option> 
+                {% endfor %} 
+            </select>
+            <input type="submit" value="Filter">
+            </form>
         </nav>
         <main>
             {% block main %}  {% endblock %}

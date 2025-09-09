@@ -20,7 +20,7 @@ def get_animals(animal_type, filters=None):
 
     #adding in filters  maybe try adding <= and >= for the numerical values
     if filters:
-        if 'life_span' in filters:
+        """if 'life_span' in filters:
             query += " AND life_span = ?"
             params.append(filters['life_span'])
         if 'average_length' in filters:
@@ -28,7 +28,7 @@ def get_animals(animal_type, filters=None):
             params.append(filters['average_length'])
         if 'top_speed' in filters:
             query += " AND top_speed = ?"
-            params.append(filters['top_speed'])
+            params.append(filters['top_speed'])"""
         if 'mobility' in filters:
             query += " AND mobility = ?"
             params.append(filters['mobility'])
@@ -57,7 +57,7 @@ def get_filters():
     con = create_connection(DATABASE)
     cur = con.cursor()
 
-    query_life_span = "SELECT DISTINCT life_span FROM Marine"
+    """query_life_span = "SELECT DISTINCT life_span FROM Marine"
     cur.execute(query_life_span)
     life_span = [record[0] for record in cur.fetchall()]
     
@@ -67,7 +67,7 @@ def get_filters():
 
     query_top_speed = "SELECT DISTINCT top_speed FROM Marine"
     cur.execute(query_top_speed)
-    top_speed = [record[0] for record in cur.fetchall()]
+    top_speed = [record[0] for record in cur.fetchall()]"""
 
     query_mobility = "SELECT DISTINCT mobility FROM Marine"
     cur.execute(query_mobility)
@@ -76,9 +76,9 @@ def get_filters():
 
     con.close()
     return {
-        'life_span': life_span,
+        """'life_span': life_span,
         'average_length': average_length,
-        'top_speed': top_speed,
+        'top_speed': top_speed,"""
         'mobility': mobility
         }
 
@@ -89,9 +89,9 @@ def render_home():
 @app.route('/main/<classification>')
 def render_animals(classification):
     filters = {
-        'life_span': request.args.get('life_span'),
+        """'life_span': request.args.get('life_span'),
         'average_length': request.args.get('average_length'),
-        'top_speed': request.args.get('top_speed'),
+        'top_speed': request.args.get('top_speed'),"""
         'mobility': request.args.get('mobility')
     }
     title = classification.upper()
