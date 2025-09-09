@@ -3,9 +3,6 @@
 {% block main %}
     <h2>{{ title }}</h2>
     <p>{{ sort }}</p>
-     <table>
-                <thead>
-                    <tr>
                         <th><a href="/sort/{{title}}?sort=animal_name&order={{ order }}">Animal Name</a></th>
                         <th><a href="/sort/{{title}}?sort=science_name&order={{ order }}">Scientific name </a></th>
                         <th><a href="/sort/{{title}}?sort=life_span&order={{ order }}">Life Span</a></th>
@@ -14,17 +11,15 @@
                         <th>images</th>
 
 
-                    </tr>
-                </thead>
-                <tbody>
                     {% for animal in animals %}
-                    <tr>
+                    <article>  
                         <td>{{ animal[0] }}</td>
                         <td>{{ animal[1] }}</td>
                         <td>{{ animal[2] }}</td>
                         <td>{{ animal[3] }}</td>
                         <td>{{ animal[4] }}</td>
                         <td><img src="/static/images/{{ animal[0] }}.jpg" width="100"></td>
+                        </article>
                       
 
 
