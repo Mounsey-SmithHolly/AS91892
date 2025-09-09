@@ -71,7 +71,7 @@ def get_filters():
 
     query_mobility = "SELECT DISTINCT mobility FROM Marine"
     cur.execute(query_mobility)
-    top_speed = [record[0] for record in cur.fetchall()]
+    mobility = [record[0] for record in cur.fetchall()]
 
 
     con.close()
@@ -88,8 +88,14 @@ def render_home():
 
 @app.route('/main/<classification>')
 def render_animals(classification):
+    filters = {
+        'life_span': request.args.get('life_span'),
+        'average_length': request.args.get('average_length'),
+        'top_speed': request.args.get('top_speed'),
+        'mobility': request.args.get('mobility')
+    }
     title = classification.upper()
-    return render_template('creatures.html', animals=get_animals(classification), title=title, classifications=get_classifications())
+    return render_template('creatures.html', animals=get_animals(classification), title=title, classifications=get_classifications(), filters = get_filters())
 
 #adding in the search function 
 @app.route("/search", methods=['GET','POST'])
