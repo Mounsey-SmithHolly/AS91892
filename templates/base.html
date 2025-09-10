@@ -22,17 +22,7 @@
                 <form method="POST" action="/search">
                 <input type="text" name="search" id="search">
                 <input type="submit" value="Search">
-                </form> 
-                <form method = "GET">
-                <label for="mobility">Mobility</label>
-                <select name="mobility" id="mobility"> 
-                <option value="">All</option> 
-                {% for movement in filters.mobility %} 
-                <option value="{{ movement }}">{{ movement }}</option> 
-                {% endfor %} 
-                </select>
-                <input type="submit" value="Filter">
-                </form>     
+                </form>  
                 </nav>
                 <main>
                 {% block main %}  {% endblock %}
