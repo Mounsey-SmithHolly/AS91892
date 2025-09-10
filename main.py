@@ -37,7 +37,7 @@ def get_animals(animal_type, filters=None):
 
     con = create_connection(DATABASE)
     cur = con.cursor()
-    cur.execute(query, (title,))
+    cur.execute(query, params)
     animal_list = cur.fetchall()
     print(animal_list)
     con.close()

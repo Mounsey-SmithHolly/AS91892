@@ -3,12 +3,12 @@
 {% block main %}
     <h2>{{ title }}</h2>
     <p>{{ sort }}</p>
-                        <th><a href="/sort/{{title}}?sort=animal_name&order={{ order }}">Animal Name</a></th>
-                        <th><a href="/sort/{{title}}?sort=science_name&order={{ order }}">Scientific name </a></th>
-                        <th><a href="/sort/{{title}}?sort=life_span&order={{ order }}">Life Span</a></th>
-                        <th><a href="/sort/{{title}}?sort=average_length&order={{ order }}">Average Length</a></th>
-                        <th><a href="/sort/{{title}}?sort=top_speed&order={{ order }}">Top Speed</a></th>
-                        <th>images</th>
+                        <a href="/sort/{{title}}?sort=animal_name&order={{ order }}">Animal Name</a>
+                        <a href="/sort/{{title}}?sort=science_name&order={{ order }}">Scientific name </a>
+                        <a href="/sort/{{title}}?sort=life_span&order={{ order }}">Life Span</a></th>
+                        <a href="/sort/{{title}}?sort=average_length&order={{ order }}">Average Length</a>
+                        <a href="/sort/{{title}}?sort=top_speed&order={{ order }}">Top Speed</a>
+                        <p>images</p>
 
 
                     {% for animal in animals %}
