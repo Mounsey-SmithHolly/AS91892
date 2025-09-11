@@ -17,7 +17,7 @@ def create_connection(db_file):
 
 def get_animals(animal_type):
     title = animal_type.capitalize()
-    query = "SELECT animal_name, science_name, life_span, average_length, top_speed, images FROM Marine WHERE animal_group = ?"
+    query = "SELECT animal_name, scientific_name, life_span, average_length, top_speed, images FROM Marine WHERE animal_group = ?"
     params = [title]
     
     con = create_connection(DATABASE)
@@ -52,7 +52,7 @@ def render_animals(classification):
 def render_search():
     search = request.form['search']
     title = "Search for " + search
-    query = "SELECT animal_name, science_name FROM Marine WHERE animal_name LIKE ? OR science_name LIKE ?"
+    query = "SELECT animal_name, scientific_name FROM Marine WHERE animal_name LIKE ? OR scientific_name LIKE ?"
     search = "%" + search + "%"
     con = create_connection(DATABASE)
     cur = con.cursor()
@@ -72,7 +72,7 @@ def render_sortpage(title):
         new_order = 'asc'
 
     #sorting query
-    query = "SELECT animal_name, science_name, life_span, average_length, top_speed, images FROM Marine WHERE animal_group=? ORDER BY " + sort+ " " + order
+    query = "SELECT animal_name, scientific_name, life_span, average_length, top_speed, images FROM Marine WHERE animal_group=? ORDER BY " + sort+ " " + order
     con = create_connection(DATABASE)
     cur = con.cursor()
 
