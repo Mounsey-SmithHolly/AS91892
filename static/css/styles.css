@@ -37,6 +37,8 @@ nav {
   align-items: center;
   flex-wrap: wrap;
   border-bottom: 2px solid var(--color-light-blue);
+  position: fixed;
+  width: 100%;
 }
 
 nav ul {
@@ -131,6 +133,7 @@ article:hover {
 
 article p {
   margin: 5px 0;
+  text-align: center;
 }
 
 article img {
@@ -163,4 +166,14 @@ footer {
   nav ul li {
     margin-right: 10px;
   }
+}
+
+h4{
+  text-align: center;
+}
+
+footer{
+    bottom: 0; 
+    width: 100%;
+    text-align: center;
 }

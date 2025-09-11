@@ -3,22 +3,23 @@
 {% block main %}
     <h2>{{ title }}</h2>
     <p>{{ sort }}</p>
+                        <h3>
                         <a href="/sort/{{title}}?sort=animal_name&order={{ order }}">Animal Name</a>
                         <a href="/sort/{{title}}?sort=science_name&order={{ order }}">Scientific name </a>
                         <a href="/sort/{{title}}?sort=life_span&order={{ order }}">Life Span</a></th>
                         <a href="/sort/{{title}}?sort=average_length&order={{ order }}">Average Length</a>
                         <a href="/sort/{{title}}?sort=top_speed&order={{ order }}">Top Speed</a>
-                        <p>images</p>
+                        </h3>
 
 
                     {% for animal in animals %}
                     <article>  
-                        <p>{{ animal[0] }}</p>
-                        <p>{{ animal[1] }}</p>
-                        <p>{{ animal[2] }}</p>
-                        <p>{{ animal[3] }}</p>
-                        <p>{{ animal[4] }}</p>
-                        <p><img src="/static/images/{{ animal[5] }}.jpg" width="100"></td>
+                        <h4>{{ animal[0] }}</h4>
+                        <p><img src="/static/images/{{ animal[5] }}.jpg" width="100"></p>
+                        <p>Scientific Name: {{ animal[1] }}</p>
+                        <p>Average Life Span: {{ animal[2] }}</p>
+                        <p>Average Length: {{ animal[3] }}</p>
+                        <p>Top Speed:{{ animal[4] }}</p>
                         </article>
                       
 
@@ -28,6 +29,6 @@
                 </tbody>
     </table>
             <footer>
-                <p>by me</p>
+                <p></p>
             </footer>
 {% endblock %}
