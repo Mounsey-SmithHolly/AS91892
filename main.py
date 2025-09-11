@@ -63,15 +63,12 @@ def render_search():
 
 @app.route('/sort/<title>')
 def render_sortpage(title):
-    sort = request.args.get('sort')
+    sort = request.args.get('sort', 'animal_name')
     order = request.args.get('order', 'asc')
     #change the sort order 
-    if order == 'asc':
-        new_order = 'desc'
-    else:
-        new_order = 'asc'
-
-    #sorting query
+    
+    #sorting query 
+    new_order = 'desc' if order == 'asc' else 'asc'
     query = "SELECT animal_name, scientific_name, life_span, average_length, top_speed, images FROM Marine WHERE animal_group=? ORDER BY " + sort + " " + order
     con = create_connection(DATABASE)
     cur = con.cursor()
@@ -80,7 +77,7 @@ def render_sortpage(title):
     cur.execute(query, (title,))
     animal_list = cur.fetchall()
     con.close()
-    return render_template('creatures.html', animals=animal_list, title=title, classifications=get_classifications(), order=new_order)
+    return render_template('creatures.html', animals=animal_list, title=sort, classifications=get_classifications(), order=new_order)
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', debug=True)

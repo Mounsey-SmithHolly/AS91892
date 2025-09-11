@@ -12,8 +12,8 @@
                         </h3>
 
 
-                    {% for animal in animals %}
-                    <article>  
+                        {% for animal in animals %}
+                        <article>  
                         <h4>{{ animal[0] }}</h4>
                         <p><img src="/static/images/{{ animal[5] }}.jpg" width="100"></p>
                         <p>Scientific Name: {{ animal[1] }}</p>
@@ -21,10 +21,7 @@
                         <p>Average Length: {{ animal[3] }}</p>
                         <p>Top Speed:{{ animal[4] }}</p>
                         </article>
-                      
-
-
-                    </tr>
+                
                     {% endfor %}
                 </tbody>
     </table>
