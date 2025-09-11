@@ -72,7 +72,7 @@ def render_sortpage(title):
         new_order = 'asc'
 
     #sorting query
-    query = "SELECT animal_name, scientific_name, life_span, average_length, top_speed, images FROM Marine WHERE animal_group=? ORDER BY " + sort+ " " + order
+    query = "SELECT animal_name, scientific_name, life_span, average_length, top_speed, images FROM Marine WHERE animal_group=? ORDER BY " + sort + " " + order
     con = create_connection(DATABASE)
     cur = con.cursor()
 
