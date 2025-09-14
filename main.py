@@ -63,10 +63,16 @@ def render_search():
 
 @app.route('/sort/<title>')
 def render_sortpage(title):
+    allowed_sorts = ['animal_name', 'scientific_name', 'life_span', 'average_length', 'top_speed']
     sort = request.args.get('sort', 'animal_name')
     order = request.args.get('order', 'asc')
     #change the sort order 
     
+    if sort not in allowed_sorts:
+        sort = 'animal_name'
+    if order not in ['asc', 'desc']:
+        order = 'asc'
+
     #sorting query 
     new_order = 'desc' if order == 'asc' else 'asc'
     query = "SELECT animal_name, scientific_name, life_span, average_length, top_speed, images FROM Marine WHERE animal_group=? ORDER BY " + sort + " " + order
@@ -74,10 +80,10 @@ def render_sortpage(title):
     cur = con.cursor()
 
     #query the database
-    cur.execute(query, (title,))
+    cur.execute(query, (title.capitalize(),))
     animal_list = cur.fetchall()
     con.close()
-    return render_template('creatures.html', animals=animal_list, title=sort, classifications=get_classifications(), order=new_order)
+    return render_template('creatures.html', animals=animal_list, title=title.upper(), classifications=get_classifications(), order=new_order, sort=sort)
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', debug=True)
