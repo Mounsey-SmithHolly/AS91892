@@ -17,7 +17,7 @@ def create_connection(db_file):
 
 def get_animals(animal_type):
     title = animal_type.capitalize()
-    query = "SELECT animal_name, scientific_name, life_span, average_length, top_speed, images FROM Marine WHERE animal_group = ?"
+    query = "SELECT animal_name, scientific_name, life_span, average_length, top_speed, mobility, images FROM Marine WHERE animal_group = ?"
     params = [title]
     
     con = create_connection(DATABASE)
