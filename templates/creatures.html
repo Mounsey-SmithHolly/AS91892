@@ -2,16 +2,15 @@
 
 {% block main %}
     <h2>{{ title }}</h2>
-    <p>{{ sort }}</p>
-                        <h3>
+                        <div class="sort-group">
                         <a href="/sort/{{ title }}?sort=animal_name&order={{ order }}">Animal Name</a>
                         <a href="/sort/{{ title }}?sort=scientific_name&order={{ order }}">Scientific Name</a>
                         <a href="/sort/{{ title }}?sort=life_span&order={{ order }}">Life Span</a>
                         <a href="/sort/{{ title }}?sort=average_length&order={{ order }}">Average Length</a>
                         <a href="/sort/{{ title }}?sort=top_speed&order={{ order }}">Top Speed</a>
-                        </h3>
+                        </div>
 
-
+                        <div class="animal-info">
                         {% for animal in animals %}
                         <article>  
                         <h4>{{ animal[0] }}</h4>
@@ -21,6 +20,7 @@
                         <p>Average Length: {{ animal[3] }}</p>
                         <p>Top Speed:{{ animal[4] }}</p>
                         </article>
+                        </div>
                 
                     {% endfor %}
 
