@@ -10,19 +10,24 @@
                         <a href="/sort/{{ title }}?sort=top_speed&order={{ order }}">Top Speed</a>
                         </div>
 
+                        <!---loop throught each animals infomation in the database  --->
                         <div class="animal-info">
                         {% for animal in animals %}
                         <article>  
+                        <!--the name of the animals (primary key)-->
                         <h4>{{ animal[0] }}</h4>
+                        <!--the image of the animal is stored in the static file folder-->
                         <p><img src="/static/images/{{ animal[6] }}.jpg" width="100"></p>
+
+                        <!--the remainder of infomation about the animals-->
                         <p>Scientific Name: {{ animal[1] }}</p>
-                        <p>Average Life Span: {{ animal[2] }}</p>
-                        <p>Average Length: {{ animal[3] }}</p>
-                        <p>Top Speed:{{ animal[4] }}</p>
+                        <p>Average Life Span: {{ animal[2] }} years</p>
+                        <p>Average Length: {{ animal[3] }}m</p>
+                        <p>Top Speed: {{ animal[4] }}km/h</p>
                         <p>Mobility: {{ animal[5] }}</p>
                         </article>
-                        </div>
                 
                     {% endfor %}
+                        </div>
 
 {% endblock %}
