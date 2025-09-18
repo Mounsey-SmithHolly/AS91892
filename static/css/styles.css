@@ -131,12 +131,8 @@ main {
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
     color: white;
 }
-
-.animal-info h3 {
-    margin-top: 0;
+h3{
     size:bold;
-    font-size: 20px;
-    text-align: center;
 }
 
 .animal-info img {
