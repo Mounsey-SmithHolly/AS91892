@@ -52,7 +52,7 @@ def render_animals(classification):
 def render_search():
     search = request.form['search']
     title = "Search for " + search
-    query = "SELECT animal_name, scientific_name FROM Marine WHERE animal_name LIKE ? OR scientific_name LIKE ?"
+    query = "SELECT animal_name, scientific_name FROM Marine WHERE animal_name like ? OR scientific_name like ?"
     search = "%" + search + "%"
     con = create_connection(DATABASE)
     cur = con.cursor()
@@ -75,7 +75,7 @@ def render_sortpage(title):
 
     #sorting query 
     new_order = 'desc' if order == 'asc' else 'asc'
-    query = "SELECT animal_name, scientific_name, life_span, average_length, top_speed, images FROM Marine WHERE animal_group=? ORDER BY " + sort + " " + order
+    query = "SELECT animal_name, scientific_name, life_span, average_length, top_speed, mobility, images FROM Marine WHERE animal_group=? ORDER BY " + sort + " " + order
     con = create_connection(DATABASE)
     cur = con.cursor()
 
