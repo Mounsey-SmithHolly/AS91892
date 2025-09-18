@@ -32,6 +32,7 @@ nav {
     padding: 20px;
     overflow-y: auto;
     text-decoration: underline;
+    font-size: 15px;
 
     /* Gap between nav and page */
     margin-right: 20px;
@@ -132,7 +133,13 @@ main {
     color: white;
 }
 h3{
-    size:bold;
+    font-size: 25px;
+}
+
+h4{
+    font-size: 15px;
+    text-align: center;
+    text-decoration: underline;
 }
 
 .animal-info img {
@@ -161,4 +168,4 @@ h3{
     }
 
 }
-}
+
