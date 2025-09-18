@@ -52,7 +52,7 @@ def render_animals(classification):
 def render_search():
     search = request.form['search']
     title = "Search for " + search
-    query = "SELECT animal_name, scientific_name, life_span, average_length, top_speed, mobility FROM Marine WHERE animal_name like ? OR scientific_name like ? OR mobility like ?"
+    query = "SELECT animal_name, scientific_name, life_span, average_length, top_speed, mobility, images FROM Marine WHERE animal_name like ? OR scientific_name like ? OR mobility like ?"
     search = "%" + search + "%"
     con = create_connection(DATABASE)
     cur = con.cursor()
