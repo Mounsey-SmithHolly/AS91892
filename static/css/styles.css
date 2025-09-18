@@ -5,6 +5,7 @@
     --dark-aqua: #42686e;
     --muted-blue-green: #5a6e72;
     --dark-grayish-blue: #444853;
+    --offwhite-blue: #f0f5f7; /* NEW: Soft bluish off-white background */
 }
 
 /* Reset and Base Styles */
@@ -13,8 +14,8 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background-color: var(--muted-blue-green); /* NEW: main background */
-    color: #f9f9f9;
+    background-color: var(--offwhite-blue); /* NEW background */
+    color: #333; /* Darker text for better contrast on light bg */
 }
 
 /* Side Navigation */
@@ -86,8 +87,8 @@ nav input[type="submit"]:hover {
 /* Main Content */
 main {
     margin-left: 240px; /* 220px nav + 20px gap */
-    padding: 20px 20px 20px 40px; /* Extra left padding so text doesn't touch nav */
-    background-color: var(--muted-blue-green);
+    padding: 20px 20px 20px 40px; /* Extra left padding */
+    background-color: var(--offwhite-blue); /* Light bluish background */
 }
 
 /* Sort Buttons */
@@ -120,11 +121,12 @@ main {
 }
 
 .animal-info article {
-    background-color: var(--dark-grayish-blue); /* NEW: darker card background */
+    background-color: var(--dark-grayish-blue); /* Dark cards */
     padding: 15px;
     border-radius: 8px;
     border: 1px solid var(--light-aqua);
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+    color: white;
 }
 
 .animal-info h4 {
