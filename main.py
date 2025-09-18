@@ -52,11 +52,11 @@ def render_animals(classification):
 def render_search():
     search = request.form['search']
     title = "Search for " + search
-    query = "SELECT animal_name, scientific_name FROM Marine WHERE animal_name like ? OR scientific_name like ?"
+    query = "SELECT animal_name, scientific_name, life_span, average_length, top_speed, mobility FROM Marine WHERE animal_name like ? OR scientific_name like ? OR mobility like ?"
     search = "%" + search + "%"
     con = create_connection(DATABASE)
     cur = con.cursor()
-    cur.execute(query, (search, search))
+    cur.execute(query, (search, search, search))
     animal_list = cur.fetchall()
     con.close()
     return render_template('creatures.html', animals=animal_list, title=title, classifications=get_classifications())
