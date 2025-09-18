@@ -1,4 +1,4 @@
-/* Define color palette as CSS variables */
+/* Color Variables */
 :root {
     --light-aqua: #94c7c9;
     --medium-aqua: #6ca4ae;
@@ -7,14 +7,14 @@
     --dark-grayish-blue: #444853;
 }
 
-/* Reset and basics */
+/* Reset and Base Styles */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background-color: #f9f9f9; /* Pale background */
-    color: var(--dark-grayish-blue);
+    background-color: var(--muted-blue-green); /* NEW: main background */
+    color: #f9f9f9;
 }
 
 /* Side Navigation */
@@ -28,6 +28,9 @@ nav {
     left: 0;
     padding: 20px;
     overflow-y: auto;
+
+    /* Gap between nav and page */
+    margin-right: 20px;
 }
 
 nav ul {
@@ -61,7 +64,7 @@ nav input[type="text"] {
     width: 100%;
     border: none;
     border-radius: 4px;
-    background-color: var(--muted-blue-green);
+    background-color: var(--dark-grayish-blue);
     color: white;
 }
 
@@ -80,10 +83,11 @@ nav input[type="submit"]:hover {
     background-color: var(--light-aqua);
 }
 
-/* Main content, with left margin to avoid nav overlap */
+/* Main Content */
 main {
-    margin-left: 240px; /* nav width + some padding */
-    padding: 20px;
+    margin-left: 240px; /* 220px nav + 20px gap */
+    padding: 20px 20px 20px 40px; /* Extra left padding so text doesn't touch nav */
+    background-color: var(--muted-blue-green);
 }
 
 /* Sort Buttons */
@@ -95,19 +99,20 @@ main {
 
 .sort-group a {
     padding: 8px 15px;
-    background-color: #eee;
+    background-color: var(--dark-grayish-blue);
     border: 1px solid #ccc;
     border-radius: 6px;
     text-decoration: none;
-    color: var(--dark-grayish-blue);
+    color: white;
     transition: background-color 0.3s ease;
 }
 
 .sort-group a:hover {
-    background-color: var(--muted-blue-green);
+    background-color: var(--light-aqua);
+    color: black;
 }
 
-/* Animal info in flexible grid */
+/* Animal Info Grid */
 .animal-info {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -115,11 +120,11 @@ main {
 }
 
 .animal-info article {
-    background-color: #fff;
+    background-color: var(--dark-grayish-blue); /* NEW: darker card background */
     padding: 15px;
     border-radius: 8px;
     border: 1px solid var(--light-aqua);
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
 }
 
 .animal-info h4 {
@@ -127,20 +132,26 @@ main {
 }
 
 .animal-info img {
+    width: 100%;
+    height: auto;
     border-radius: 6px;
+    object-fit: cover;
 }
 
-/* Responsive for smaller screens */
+/* Responsive Design */
 @media (max-width: 600px) {
     nav {
         position: relative;
         width: 100%;
         height: auto;
+        margin-right: 0;
     }
+
     main {
         margin-left: 0;
         padding: 10px;
     }
+
     .sort-group {
         flex-wrap: wrap;
     }
