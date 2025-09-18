@@ -1,16 +1,27 @@
+/* Define color palette as CSS variables */
+:root {
+    --light-aqua: #94c7c9;
+    --medium-aqua: #6ca4ae;
+    --dark-aqua: #42686e;
+    --muted-blue-green: #5a6e72;
+    --dark-grayish-blue: #444853;
+}
+
 /* Reset and basics */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    background-color: #f9f9f9; /* Pale background */
+    color: var(--dark-grayish-blue);
 }
 
 /* Side Navigation */
 nav {
     width: 220px;
-    background-color: #333;
-    color: #fff;
+    background-color: var(--dark-aqua);
+    color: white;
     height: 100vh;
     position: fixed;
     top: 0;
@@ -38,7 +49,7 @@ nav a {
 }
 
 nav a:hover {
-    background-color: #575757;
+    background-color: var(--medium-aqua);
 }
 
 nav form {
@@ -50,6 +61,8 @@ nav input[type="text"] {
     width: 100%;
     border: none;
     border-radius: 4px;
+    background-color: var(--muted-blue-green);
+    color: white;
 }
 
 nav input[type="submit"] {
@@ -58,13 +71,13 @@ nav input[type="submit"] {
     width: 100%;
     border: none;
     border-radius: 4px;
-    background-color: #555;
+    background-color: var(--medium-aqua);
     color: white;
     cursor: pointer;
 }
 
 nav input[type="submit"]:hover {
-    background-color: #777;
+    background-color: var(--light-aqua);
 }
 
 /* Main content, with left margin to avoid nav overlap */
@@ -86,12 +99,12 @@ main {
     border: 1px solid #ccc;
     border-radius: 6px;
     text-decoration: none;
-    color: #333;
+    color: var(--dark-grayish-blue);
     transition: background-color 0.3s ease;
 }
 
 .sort-group a:hover {
-    background-color: #ddd;
+    background-color: var(--muted-blue-green);
 }
 
 /* Animal info in flexible grid */
@@ -102,11 +115,11 @@ main {
 }
 
 .animal-info article {
-    background-color: #f9f9f9;
+    background-color: #fff;
     padding: 15px;
     border-radius: 8px;
-    border: 1px solid #ccc;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    border: 1px solid var(--light-aqua);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .animal-info h4 {
