@@ -142,6 +142,14 @@ h4{
     text-decoration: underline;
 }
 
+footer {
+    background-color: var(--dark-aqua);
+    font-size: 12px;
+    text-align: center;
+    color: var(--offwhite-blue);
+    padding: 10px;
+}
+
 .animal-info img {
     width: 100%;
     height: auto;
