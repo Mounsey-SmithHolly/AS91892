@@ -1,34 +1,46 @@
 {% extends "base.html" %}
 
 {% block main %}
+    <!--Title of the page-->
     <h3>{{ title }}</h3>
+                        <!--links to sort the animals by different categories-->
                         <div class="sort-group">
-                        <a href="/sort/{{ title }}?sort=animal_name&order={{ order }}">Animal Name</a>
-                        <a href="/sort/{{ title }}?sort=scientific_name&order={{ order }}">Scientific Name</a>
-                        <a href="/sort/{{ title }}?sort=life_span&order={{ order }}">Life Span</a>
-                        <a href="/sort/{{ title }}?sort=average_length&order={{ order }}">Average Length</a>
-                        <a href="/sort/{{ title }}?sort=top_speed&order={{ order }}">Top Speed</a>
+                            <a href="/sort/{{ title }}?sort=animal_name&order={{ order }}">Animal Name</a>
+                            <a href="/sort/{{ title }}?sort=scientific_name&order={{ order }}">Scientific Name</a>
+                            <a href="/sort/{{ title }}?sort=life_span&order={{ order }}">Life Span</a>
+                            <a href="/sort/{{ title }}?sort=average_length&order={{ order }}">Average Length</a>
+                            <a href="/sort/{{ title }}?sort=top_speed&order={{ order }}">Top Speed</a>
                         </div>
 
-                        <!---loop throught each animals infomation in the database  --->
+                        <!--loop throught each animals infomation in the database-->
                         <div class="animal-info">
-                        {% for animal in animals %}
-                        <article>  
-                        <!--the name of the animals (primary key)-->
-                        <h4>{{ animal[0] }}</h4>
+                            {% for animal in animals %}
+                            <article>  
 
-                        <!--the image of the animal is stored in the static file folder-->
-                        <p><img src="/static/images/{{ animal[6] }}.jpg" alt="{{ animal[6] }}" width="100"></p>
+                                <!--the name of the animals (primary key)-->
+                                <h4>{{ animal[0] }}</h4>
 
-                        <!--the remainder of infomation about the animals-->
-                        <p>Scientific Name: {{ animal[1] }}</p>
-                        <p>Average Life Span: {{ animal[2] }} years</p>
-                        <p>Average Length: {{ animal[3] }}m</p>
-                        <p>Top Speed: {{ animal[4] }}km/h</p>
-                        <p>Mobility: {{ animal[5] }}</p>
-                        </article>
-                
-                    {% endfor %}
+                                <!--the image of the animal is stored in the static/image folder-->
+                                <p><img src="/static/images/{{ animal[6] }}.jpg" alt="{{ animal[6] }}" width="100"></p>
+
+                                <!--the remainder of infomation about the animals-->
+                                <!--animal[1] is scientific name--> 
+                                <p>Scientific Name: {{ animal[1] }}</p>
+
+                                <!--animal[2] is life span--> 
+                                <p>Average Life Span: {{ animal[2] }} years</p>
+
+                                <!--animal[3] is average length-->
+                                <p>Average Length: {{ animal[3] }}m</p>
+
+                                <!--animal[4] is top speed-->
+                                <p>Top Speed: {{ animal[4] }}km/h</p>
+
+                                <!--animal[5] is mobility-->
+                                <p>Mobility: {{ animal[5] }}</p>
+                            </article>
+                    
+                            {% endfor %}
                         </div>
 
 {% endblock %}

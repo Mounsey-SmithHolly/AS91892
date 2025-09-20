@@ -3,39 +3,50 @@
     <head>
             <meta charset="UTF-8">
                 <title>Marine Animals </title>
+
+                    <!--link to the font used throughout the website-->
                     <link type="text/css" rel="stylesheet" href="/static/css/styles.css">
                     <link rel="preconnect" href="https://fonts.googleapis.com">
                     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
                     <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
     </head>
         <body>
+            <!--the navigation bar/menu-->
             <nav>
                                    
                 <ul>
+                    <!--link to the home page-->
                     <li>
                         <a href="/">Home</a>
                     </li>
+
+                    <!--loop through each classification in the database and create a link to that page-->
                     {% for classes in classifications %}
                     <li>
                         <a href="/main/{{classes}}">{{classes}}</a>
                     </li>
                     {% endfor %}
                 </ul>
-                <!--the search function-->
+
+                <!--the search function/form-->
                 <form method="POST" action="/search">
                 <input type="text" name="search" id="search">
                 <input type="submit" value="Search">
                 </form>  
+
                 </nav>
+
+                <!--the main content of the page will be inserted here-->
                 <main>
-                {% block main %}  {% endblock %}
+                    {% block main %}  {% endblock %}
                 </main>
-                </body>
-                <footer>
-                    <p>Created by Holly Mounsey-Smith </p>
-                    <p>Credit: ChatGPT for creting the base of the CSS </p>
-                    <p>All images from Unsplash</p>
-                    <p>Infomation about the animmals(what in the database) comes from Wikipedia (infomation was checked with other sorces for accuracy)</p>
+            <footer>
+                <p>Created by Holly Mounsey-Smith </p>
+                <p>Credit: ChatGPT for creting the base of the CSS </p>
+                <p>All images from Unsplash</p>
+                <p>Infomation about the animmals(what is in the database) comes from Wikipedia (infomation was checked with other sorces for accuracy)</p>
 
             </footer >
+        </body>
+            
                 </html>
